@@ -7,4 +7,8 @@ typedef struct book_info{
 } Book;
 
 // TODO : prototype CRUD functions.
+int createBooks(Book *b);
+int updateBooks(Book *b);
+int deleteBooks(Book *b);
+
 // Please use Book data type as parameter.

@@ -32,7 +32,7 @@ int updateBooks(Book *b){
 }
 
 int deleteBooks(Book *b){
-    int yn;
+    int yn =0;
     printf("정말로 삭제하시겠습니까?(yes:1 no:0):");
     scanf("%d", &yn);
     if(yn == 1){

@@ -8,6 +8,7 @@ typedef struct book_info{
 
 // TODO : prototype CRUD functions.
 int createBooks(Book *b);
+int readBooks(Book *b);
 int updateBooks(Book *b);
 int deleteBooks(Book *b);
 

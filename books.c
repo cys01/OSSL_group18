@@ -19,6 +19,14 @@ int createBooks(Book *b){
     scanf("%d", b.borrAble);
 }
 
+void readBooks(Book *b) {
+	if(b->borrAble != -1) {
+		printf("%s\t%s\t%s\t%s\t", b->name, b->auth, b->genre, b->borrDate);
+		printf("%s\n", borrAble?"대출 가능":"대출 불가능");
+	}
+}
+
+
 int updateBooks(Book *b){
     printf("\n");
     printf("수정하기를 원하시는 책의 이름을 입력해주세요:");

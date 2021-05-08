@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#include "books.h"
+
 int main() {
     // TODO : code menu selection.
     
@@ -8,10 +10,12 @@ int main() {
     int menu = -1;
 
     while(menu) {
-	printf("0 : 종료\n1 : 도서 추가\n2 : 도서 조회\n3 : 도서 정보 수정\n4 : 도서 삭제\n5 : 도서 저장\n6 : 도서 검색\n);
+	printf("\n0 : 종료\n1 : 도서 추가\n2 : 도서 조회\n3 : 도서 정보 수정\n4 : 도서 삭제\n5 : 도서 저장\n6 : 도서 검색\n\n");
+	scanf("%d", &menu);
+
 	switch(menu) {
 	    case 1:
-		count += createBooks(books[count]);
+		count += createBooks(books + count);
 		break;
 	    case 2:
 		readBooks(books);

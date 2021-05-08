@@ -3,20 +3,20 @@
 int createBooks(Book *b){
     printf("\n");
     printf("원하시는 책의 이름을 입력해주세요:");
-    scanf("%s", b.name);
+    scanf("%s", b->name);
     getchar();
     printf("\n저자의 이름을 입력해주세요:");
-    scanf("%s", b.auth);
+    scanf("%s", b->auth);
     getchar();
     printf("\n책의 장르를 입력해주세요:");
-    scanf("%s", b.genre);
+    scanf("%s", b->genre);
     getchar();
     printf("\n만약 대출이 되어있다면, 책의 대출일을 입력해주세요\n");
     printf("대출이 되어있지 않다면 0000을 입력해주세요:");
-    scanf("%s", b.borrDate);
+    scanf("%s", b->borrDate);
     getchar();
     printf("\n대출 여부를 입력해주세요(yes : 1, no : 0):");
-    scanf("%d", b.borrAble);
+    scanf("%d", b->borrAble);
 }
 
 void readBooks(Book *b) {

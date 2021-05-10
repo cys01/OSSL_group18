@@ -1,3 +1,6 @@
 # temporary gitignore
 *.out
 *.o
+
+# for macOS
+.DS_Store

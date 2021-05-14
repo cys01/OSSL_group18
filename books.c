@@ -34,7 +34,7 @@ void readBooks(Book *b, int index) {
 }
 
 
-int updateBooks(Book *b){
+int updateBooks(Book *b, int index){
     printf("\n수정하기를 원하시는 책의 이름을 입력해주세요:");
     scanf(" %[^\n]", b->name);
     getchar();

@@ -11,8 +11,15 @@ typedef struct book_info{
 
 // TODO : prototype CRUD functions.
 int createBooks(Book *b);
-void readBooks(Book *b);
+void readBooks(Book *b, int index);
 int updateBooks(Book *b);
 int deleteBooks(Book *b);
 
-// Please use Book data type as parameter.
+// TODO : prototype save and load functions.
+int loadBooks(Books *b);
+void saveBooks(Books *b, int index);
+
+// TODO : prototype search functions.
+
+searchBorrow(Books *b, int index);
+searchOverdue(Books *b, int index);

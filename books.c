@@ -25,7 +25,7 @@ int createBooks(Book *b){
 void readBooks(Book *b, int index) {
 	printf("%-12s\t%-12s\t%-8s\t%s\t\t%s\n", "이름", "저자", "장르", "대출일", "대출 가능");
 	for(int i = 0; i < index; i++) {
-		Books *book = b + i;
+		Book *book = b + i;
 		if(book->borrAble != -1) {
 			printf("%-12s\t%-12s\t%-8s\t%-10s\t", book->name, book->auth, book->genre, book->borrDate);
 			printf("%s\n", book->borrAble?"대출 불가능":"대출 가능");
@@ -72,27 +72,26 @@ int deleteBooks(Book *b){
     return 1;
 }
 
-int loadBooks(Books *b) {
+int loadBooks(Book *b) {
 	FILE *fp = fopen("books.txt", "r");
 	int index;
-	for(index = 0; fscanf(fp, " %[^;]", b[i].name) != EOF; index++)
-		fscanf(fp, "%*c%[^;]%*c%[^;]%*c%[^;]%*c%[^\n], b[i].auth, b[i].genre, b[i].borrDate, &b[i].borrAble);
+	for(index = 0; fscanf(fp, " %[^;]", b[index].name) != EOF; index++)
+		fscanf(fp, "%*c%[^;]%*c%[^;]%*c%[^;]%*c%d", b[index].auth, b[index].genre, b[index].borrDate, &b[index].borrAble);
 
 	fclose(fp);
 	return index;
 }
 
-void saveBooks(Books *b, int index) {
-
+void saveBooks(Book *b, int index) {
 	FILE *fp = fopen("books.txt", "w");
 
 	for(int i = 0; i < index; i++) {
-		Books *book = b + i;
+		Book *book = b + i;
 		if(book->borrAble != -1)
 			fprintf(fp, "%s;%s;%s;%s;%d\n", book->name, book->auth, book->genre, book->borrDate, book->borrAble);
 	}
 	fclose(fp);
 }
 
-searchBorrow(Books *b, int index);
-searchOverdue(Books *b, int index);
+//void searchBorrow(Book *b, int index);
+//void searchOverdue(Book *b, int index);

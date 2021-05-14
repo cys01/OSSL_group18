@@ -16,10 +16,10 @@ int updateBooks(Book *b);
 int deleteBooks(Book *b);
 
 // TODO : prototype save and load functions.
-int loadBooks(Books *b);
-void saveBooks(Books *b, int index);
+int loadBooks(Book *b);
+void saveBooks(Book *b, int index);
 
 // TODO : prototype search functions.
 
-searchBorrow(Books *b, int index);
-searchOverdue(Books *b, int index);
+void searchBorrow(Book *b, int index);
+void searchOverdue(Book *b, int index);

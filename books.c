@@ -22,11 +22,14 @@ int createBooks(Book *b){
     return 1;
 }
 
-void readBooks(Book *b) {
+void readBooks(Book *b, int index) {
 	printf("%-12s\t%-12s\t%-8s\t%s\t\t%s\n", "이름", "저자", "장르", "대출일", "대출 가능");
-	if(b->borrAble != -1) {
-		printf("%-12s\t%-12s\t%-8s\t%-10s\t", b->name, b->auth, b->genre, b->borrDate);
-		printf("%s\n", b->borrAble?"대출 불가능":"대출 가능");
+	for(int i = 0; i < index; i++) {
+		Books *book = b + i;
+		if(book->borrAble != -1) {
+			printf("%-12s\t%-12s\t%-8s\t%-10s\t", book->name, book->auth, book->genre, book->borrDate);
+			printf("%s\n", book->borrAble?"대출 불가능":"대출 가능");
+		}
 	}
 }
 
@@ -68,3 +71,21 @@ int deleteBooks(Book *b){
     }
     return 1;
 }
+
+int loadBooks(Books *b) {
+	
+}
+
+void saveBooks(Books *b, int index) {
+
+	FILE *fp = fopen("books.txt", "w");
+
+	for(int i = 0; i < index; i++) {
+		Books *book = b + i;
+		if(book->borrAble != -1)
+			fprintf(fp, "%s;%s;%s;%s;%d\n", book->name, book->auth, book->genre, book->borrDate, book->borrAble);
+	}
+	fclose(fp);
+
+searchBorrow(Books *b, int index);
+searchOverdue(Books *b, int index);

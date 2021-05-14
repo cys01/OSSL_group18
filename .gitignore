@@ -1,6 +1,7 @@
 # temporary gitignore
 *.out
 *.o
+books.txt
 
 # for macOS
 .DS_Store

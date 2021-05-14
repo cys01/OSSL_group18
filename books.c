@@ -73,7 +73,13 @@ int deleteBooks(Book *b){
 }
 
 int loadBooks(Books *b) {
-	
+	FILE *fp = fopen("books.txt", "r");
+	int index;
+	for(index = 0; fscanf(fp, " %[^;]", b[i].name) != EOF; index++)
+		fscanf(fp, "%*c%[^;]%*c%[^;]%*c%[^;]%*c%[^\n], b[i].auth, b[i].genre, b[i].borrDate, &b[i].borrAble);
+
+	fclose(fp);
+	return index;
 }
 
 void saveBooks(Books *b, int index) {
@@ -86,6 +92,7 @@ void saveBooks(Books *b, int index) {
 			fprintf(fp, "%s;%s;%s;%s;%d\n", book->name, book->auth, book->genre, book->borrDate, book->borrAble);
 	}
 	fclose(fp);
+}
 
 searchBorrow(Books *b, int index);
 searchOverdue(Books *b, int index);

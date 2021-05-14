@@ -12,8 +12,8 @@ typedef struct book_info{
 // TODO : prototype CRUD functions.
 int createBooks(Book *b);
 void readBooks(Book *b, int index);
-int updateBooks(Book *b);
-int deleteBooks(Book *b);
+int updateBooks(Book *b, int index);
+int deleteBooks(Book *b, int index);
 
 // TODO : prototype save and load functions.
 int loadBooks(Book *b);

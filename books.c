@@ -39,24 +39,26 @@ int updateBooks(Book *b, int index){
     readBooks(b, index);
     printf("수정하고 싶으신 책의 번호를 입력해주세요(취소:0)?");
     scanf("%d" , &no);
-	
+	if(no==0){
+		printf("----취소되었습니다----");
+		continue;
     printf("\n수정하기를 원하시는 책의 이름을 입력해주세요:");
-    scanf(" %[^\n]", b->name);
+    scanf(" %[^\n]", b[no-1]->name);
     getchar();
     printf("수정하기를 원하시는 책의 저자의 이름을 입력해주세요:");
-    scanf("%[^\n]", b->auth);
+    scanf("%[^\n]", b[no-1]->auth);
     getchar();
     printf("수정하기를 원하시는 책의 장르를 입력해주세요:");
-    scanf("%[^\n]", b->genre);
+    scanf("%[^\n]", b[no-1]->genre);
     getchar();
     printf("수정하기를 원하시는 책의 대출 여부를 입력해주세요(yes : 1, no : 0):");
-    scanf("%d", &b->borrAble);
+    scanf("%d", &b[no-1]->borrAble);
     getchar();
-    if(!b->borrAble)
-	strcpy(b->borrDate, "00000000");
+    if(!b[no-1]->borrAble)
+	strcpy(b[no-1]->borrDate, "00000000");
     else {
 	printf("수정하기를 원하시는 책의 대출일을 입력해주세요");
-	scanf("%s", b->borrDate);
+	scanf("%s", b[no-1]->borrDate);
 	getchar();
     }
     printf("---------- (: 수정되었습니다 :) -----------");

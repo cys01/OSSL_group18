@@ -26,10 +26,10 @@ int main() {
 		readBooks(books, index);
 		break;
 	    case 3:
-		updateBooks(books);
+		updateBooks(books, index);
 		break;
 	    case 4:
-		deleteBooks(books);
+		deleteBooks(books, index);
 		break;
 	    case 5:
 		saveBooks(books, index);

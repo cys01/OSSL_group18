@@ -114,6 +114,78 @@ void saveBooks(Book *b, int index) {
 	fclose(fp);
 }
 
+void searchName(Book *b, int index){
+    char goalname[20];
+    int found =0;
+    readBooks(b, index);
+    printf("\n찾으시고자 하는 책의 이름을 입력해주세요.:");
+    scanf("%s", goalname);
+    for(int i =0; i<index; i++){
+        Book *book = b + i;
+        char *foundName = strstr(book->name, goalname);
+        if(foundName!=0){
+            printf("\n검색이 완료되었습니다.\n");
+            printf("%-12s\t%-12s\t%-8s\t%s\t\t%s\n", "이름", "저자", "장르", "대출일", "대출 가능");
+            printf("%-12s\t%-12s\t%-8s\t%-10s\t", book->name, book->auth, book->genre, book->borrDate);
+			printf("%s\n", book->borrAble?"대출 불가능":"대출 가능");
+            found = 1;
+            continue;
+        } 
+    }
+    if (found == 0){
+        printf("\n검색이 완료되었습니다.\n");
+        printf("\n해당 도서의 이름을 찾지 못했습니다.\n");
+    }
+}
+
+void searchAuthor(Book *b, int index){
+    char goalauthor[20];
+    int found =0;
+    readBooks(b, index);
+    printf("\n찾으시고자 하는 책의 저자를 입력해주세요.:");
+    scanf("%s", goalauthor);
+    for(int i =0; i<index; i++){
+        Book *book = b + i;
+        char *foundName = strstr(book->auth, goalauthor);
+        if(foundName!=0){
+            printf("\n검색이 완료되었습니다.\n");
+            printf("%-12s\t%-12s\t%-8s\t%s\t\t%s\n", "이름", "저자", "장르", "대출일", "대출 가능");
+            printf("%-12s\t%-12s\t%-8s\t%-10s\t", book->name, book->auth, book->genre, book->borrDate);
+			printf("%s\n", book->borrAble?"대출 불가능":"대출 가능");
+            found = 1;
+            continue;
+        } 
+    }
+    if (found == 0){
+        printf("\n검색이 완료되었습니다.\n");
+        printf("\n해당 도서의 저자을 찾지 못했습니다.\n");
+    }
+}
+
+void searchGenre(Book *b, int index){
+    char goalname[20];
+    int found =0;
+    readBooks(b, index);
+    printf("\n찾으시고자 하는 책의 장르을 입력해주세요.:");
+    scanf("%s", goalname);
+    for(int i =0; i<index; i++){
+        Book *book = b + i;
+        char *foundName = strstr(book->genre, goalname);
+        if(foundName!=0){
+            printf("\n검색이 완료되었습니다.\n");
+            printf("%-12s\t%-12s\t%-8s\t%s\t\t%s\n", "이름", "저자", "장르", "대출일", "대출 가능");
+            printf("%-12s\t%-12s\t%-8s\t%-10s\t", book->name, book->auth, book->genre, book->borrDate);
+			printf("%s\n", book->borrAble?"대출 불가능":"대출 가능");
+            found = 1;
+            continue;
+        } 
+    }
+    if (found == 0){
+        printf("\n검색이 완료되었습니다.\n");
+        printf("\n해당 도서의 장르을 찾지 못했습니다.\n");
+    }
+}
+
 void searchBorrow(Book *b, int index) {
 	int isFound = 0;
 

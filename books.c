@@ -27,11 +27,11 @@ int createBooks(Book *b){
 }
 
 void readBooks(Book *b, int index) {
-	printf("%-12s\t%-12s\t%-8s\t%s\t\t%s\n", "이름", "저자", "장르", "대출일", "대출 가능");
+	printf("%-12s\t%-12s\t%-12s\t%s\t\t%s\n", "이름", "저자", "장르", "대출일", "대출 가능");
 	for(int i = 0; i < index; i++) {
 		Book *book = b + i;
 		if(book->borrAble != -1) {
-			printf("%-12s\t%-12s\t%-8s\t%-10s\t", book->name, book->auth, book->genre, book->borrDate);
+			printf("%-12s\t%-12s\t%-12s\t%-10s\t", book->name, book->auth, book->genre, book->borrDate);
 			printf("%s\n", book->borrAble?"대출 가능":"대출 불가능");
 		}
 	}
@@ -171,7 +171,7 @@ void searchOverdue(Book *b, int index) {
 			}
 		}
 
-		if((currDate / 1000) > yyyy)
+		if((currDate / 10000) > yyyy)
 			isOver = 1;
 		else if((currDate / 100 % 100) > mm)
 			isOver = 1;

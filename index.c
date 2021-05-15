@@ -47,6 +47,7 @@ int main() {
 					break;
 				case 4:
 					searchBorrow(books, index);
+					break;
 				case 5:
 					searchOverdue(books, index);
 			}

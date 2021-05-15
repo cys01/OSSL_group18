@@ -44,10 +44,13 @@ int main() {
 			switch(searchMenu) {
 				case 1:
 					searchName(books, index);
+					break;
 				case 2:
 					searchAuthor(books, index);
+					break;
 				case 3:
 					searchGenre(books, index);
+					break;
 				case 4:
 					searchBorrow(books, index);
 					break;

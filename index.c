@@ -35,7 +35,21 @@ int main() {
 		saveBooks(books, index);
 		break;
 	    case 6:
-		printf("준비중입니다!\n");
+		{
+			int searchMenu = 0;
+			printf("0 : 메뉴로 돌아가기\n1 : 책 이름 검색\n2 : 저자 검색\n3 : 장르 검색\n4 : 대출 가능 여부 검색\n5 : 연체 여부 검색\n\n);
+			scanf("%d", &searchMenu);
+			switch(searchMenu) {
+				case 1:
+				case 2:
+				case 3:
+					printf("개발 중입니다!\n");
+					break;
+				case 4:
+					searchBorrow(books, index);
+				case 5:
+					searchOverdue(books, index);
+		}
 	}
     }
 

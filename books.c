@@ -37,7 +37,7 @@ void readBooks(Book *b, int index) {
 
 
 int updateBooks(Book *b, int index){
-	int no;
+    int no;
     readBooks(b, index);
     printf("수정하고 싶으신 책의 번호를 입력해주세요(취소:0)?");
     scanf("%d" , &no);

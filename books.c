@@ -27,11 +27,11 @@ int createBooks(Book *b){
 }
 
 void readBooks(Book *b, int index) {
-	printf("%-12s\t%-12s\t%-12s\t%s\t\t%s\n", "이름", "저자", "장르", "대출일", "대출 가능");
+	printf("%s\t%-12s\t%-12s\t%-12s\t%s\t\t%s\n", "No", "이름", "저자", "장르", "대출일", "대출 가능");
 	for(int i = 0; i < index; i++) {
 		Book *book = b + i;
 		if(book->borrAble != -1) {
-			printf("%-12s\t%-12s\t%-12s\t%-10s\t", book->name, book->auth, book->genre, book->borrDate);
+			printf("%d\t%-12s\t%-12s\t%-12s\t%-10s\t", i + 1, book->name, book->auth, book->genre, book->borrDate);
 			printf("%s\n", book->borrAble?"대출 가능":"대출 불가능");
 		}
 	}
@@ -122,9 +122,9 @@ void searchBorrow(Book *b, int index) {
 		if(book->borrAble == 1) {
 			if(!isFound) {
 				isFound = !isFound;
-				printf("%-12s\t%-12s\t%-8s\t%s\n", "이름", "저자", "장르", "대출 가능");
+				printf("%-12s\t%-12s\t%-12s\t%s\n", "이름", "저자", "장르", "대출 가능");
 			}
-			printf("%-12s\t%-12s\t%-8s\t", book->name, book->auth, book->genre);
+			printf("%-12s\t%-12s\t%-12s\t", book->name, book->auth, book->genre);
 			printf("%s\n", book->borrAble?"대출 가능":"대출 불가능");
 		}
 	}
@@ -151,7 +151,7 @@ void searchOverdue(Book *b, int index) {
 		int mm = atoi(date[4]) * 10 + atoi(date[5]);
 		int dd = atoi(date[6]) * 10 + atoi(date[7]);
 
-		if(currDate < yyyy * 10000 + mm * 100 + dd) {
+		if(!book->borrAble && currDate < yyyy * 10000 + mm * 100 + dd) {
 			printf("현재 날짜가 대출 날짜보다 이전에 있습니다!\n"); 
 			return;
 		}
@@ -178,9 +178,9 @@ void searchOverdue(Book *b, int index) {
 		if(!book->borrAble && isOver) {
 			if(!isFound) {
 				isFound = !isFound;
-				printf("%-12s\t%-12s\t%-8s\t%s\t\t%s\n", "이름", "저자", "장르", "대출일", "연체 여부");
+				printf("%-12s\t%-12s\t%-12s\t%s\t\t%s\n", "이름", "저자", "장르", "대출일", "연체 여부");
 			}
-			printf("%-12s\t%-12s\t%-8s\t%-10s\t연체됨\n", book->name, book->auth, book->genre, book->borrDate);
+			printf("%-12s\t%-12s\t%-12s\t%-10s\t연체됨\n", book->name, book->auth, book->genre, book->borrDate);
 		}
 	}
 

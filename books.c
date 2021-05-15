@@ -28,7 +28,7 @@ void readBooks(Book *b, int index) {
 		Book *book = b + i;
 		if(book->borrAble != -1) {
 			printf("%-12s\t%-12s\t%-8s\t%-10s\t", book->name, book->auth, book->genre, book->borrDate);
-			printf("%s\n", book->borrAble?"대출 불가능":"대출 가능");
+			printf("%s\n", book->borrAble?"대출 가능":"대출 불가능");
 		}
 	}
 }
@@ -114,5 +114,23 @@ void saveBooks(Book *b, int index) {
 	fclose(fp);
 }
 
-//void searchBorrow(Book *b, int index);
-//void searchOverdue(Book *b, int index);
+void searchBorrow(Book *b, int index) {
+	int isFound = 0;
+
+	for(int i = 0; i < index; i++) {
+		Book *book = b + i;
+		if(book->borrAble == 1) {
+			if(!isFound) {
+				isFound = !isFound;
+				printf("%-12s\t%-12s\t%-8s\t%s\t\t%s\n", "이름", "저자", "장르", "대출일", "대출 가능");
+			}
+			printf("%-12s\t%-12s\t%-8s\t%-10s\t", book->name, book->auth, book->genre, book->borrDate);
+			printf("%s\n", book->borrAble?"대출 가능":"대출 불가능");
+		}
+	}
+
+	if(!isFound)
+		prinf("대출 가능한 도서를 찾을 수 없습니다...\n");
+}
+
+void searchOverdue(Book *b, int index);

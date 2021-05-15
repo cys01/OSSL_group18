@@ -20,8 +20,5 @@ int loadBooks(Book *b);
 void saveBooks(Book *b, int index);
 
 // TODO : prototype search functions.
-void searchName(Book *b, int index);
-void searchAuthor(Book *b, int index);
-void searchGenre(Book *b, int index);
 void searchBorrow(Book *b, int index);
 void searchOverdue(Book *b, int index);

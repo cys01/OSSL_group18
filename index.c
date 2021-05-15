@@ -21,6 +21,7 @@ int main() {
 	switch(menu) {
 	    case 1:
 		index += createBooks(books + index);
+		printf("새로운 도서 정보를 추가하였습니다.\n");
 		break;
 	    case 2:
 		readBooks(books, index);
@@ -33,6 +34,7 @@ int main() {
 		break;
 	    case 5:
 		saveBooks(books, index);
+		printf("도서 정보들을 파일에 저장하였습니다.\n");
 		break;
 	    case 6:
 		{

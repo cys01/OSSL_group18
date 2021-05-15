@@ -43,10 +43,11 @@ int main() {
 			scanf("%d", &searchMenu);
 			switch(searchMenu) {
 				case 1:
+					searchName(books, index);
 				case 2:
+					searchAuthor(books, index);
 				case 3:
-					printf("개발 중입니다!\n");
-					break;
+					searchGenre(books, index);
 				case 4:
 					searchBorrow(books, index);
 					break;

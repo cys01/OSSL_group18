@@ -37,7 +37,7 @@ int main() {
 	    case 6:
 		{
 			int searchMenu = 0;
-			printf("0 : 메뉴로 돌아가기\n1 : 책 이름 검색\n2 : 저자 검색\n3 : 장르 검색\n4 : 대출 가능 여부 검색\n5 : 연체 여부 검색\n\n);
+			printf("0 : 메뉴로 돌아가기\n1 : 책 이름 검색\n2 : 저자 검색\n3 : 장르 검색\n4 : 대출 가능 여부 검색\n5 : 연체 여부 검색\n\n");
 			scanf("%d", &searchMenu);
 			switch(searchMenu) {
 				case 1:
@@ -49,6 +49,7 @@ int main() {
 					searchBorrow(books, index);
 				case 5:
 					searchOverdue(books, index);
+			}
 		}
 	}
     }

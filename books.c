@@ -1,6 +1,6 @@
 #include "books.h"
 
-#define atoi(x) = (x - 48);
+#define atoi(x) (x - 48)
 
 int createBooks(Book *b){
     printf("\n원하시는 책의 이름을 입력해주세요:");
@@ -132,7 +132,7 @@ void searchBorrow(Book *b, int index) {
 	}
 
 	if(!isFound)
-		prinf("대출 가능한 도서를 찾을 수 없습니다...\n");
+		printf("대출 가능한 도서를 찾을 수 없습니다...\n");
 }
 
 void searchOverdue(Book *b, int index) {
@@ -145,7 +145,7 @@ void searchOverdue(Book *b, int index) {
 		Book *book = b + i;
 		int isOver = 0;
 
-		int m2d = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		int m2d[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 		char *date = book->borrDate;
 
@@ -186,5 +186,5 @@ void searchOverdue(Book *b, int index) {
 	}
 
 	if(!isFound)
-		prinf("연체된 도서를 찾을 수 없습니다...\n");
+		printf("연체된 도서를 찾을 수 없습니다...\n");
 }

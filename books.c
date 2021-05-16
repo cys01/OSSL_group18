@@ -27,7 +27,7 @@ int createBooks(Book *b){
 }
 
 void readBooks(Book *b, int index) {
-	printf("%s\t%-12s\t%-12s\t%-12s\t%s\t\t%s\n", "No", "이름", "저자", "장르", "대출일", "대출 가능");
+	printf("%s\t%-12s\t%-12s\t%-12s\t%s\t\t%s\n", "No", "이름", "저자", "장르", "대출일", "대출 가능 여부");
 	for(int i = 0; i < index; i++) {
 		Book *book = b + i;
 		if(book->borrAble != -1) {
@@ -195,7 +195,7 @@ void searchBorrow(Book *b, int index) {
 		if(book->borrAble == 1) {
 			if(!isFound) {
 				isFound = !isFound;
-				printf("%-12s\t%-12s\t%-12s\t%s\n", "이름", "저자", "장르", "대출 가능");
+				printf("%-12s\t%-12s\t%-12s\t%s\n", "이름", "저자", "장르", "대출 가능 여부");
 			}
 			printf("%-12s\t%-12s\t%-12s\t", book->name, book->auth, book->genre);
 			printf("%s\n", book->borrAble?"대출 가능":"대출 불가능");
